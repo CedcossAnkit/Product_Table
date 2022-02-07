@@ -1,0 +1,26 @@
+#form{
+    background: lightblue;
+    border:1px solid red;
+    width: 25rem;
+    margin: auto;
+}
+#mian{
+    margin: auto;
+    
+}
+
+.head{
+    margin-left: 100px;
+}
+
+table tr th{
+    background-color: lightgoldenrodyellow;
+    width: 200px;
+    text-align: center;
+
+}
+
+table tr td{
+    background: lightslategrey;
+    text-align: center;
+}
