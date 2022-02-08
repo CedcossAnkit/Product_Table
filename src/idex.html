@@ -18,7 +18,11 @@
             <label>Product Id :</label><input type="text" name="" id="pID"><br><br>
             <label>Product Name:</label><input type="text" name="" id="pName"><br><br>
             <label>Product Price:</label><input type="text" name="" id="pPrice"><br><br>
-            <button onclick="click1()">ADD PRODUCT</button>
+            <button onclick="click1()" id="btadd">ADD PRODUCT</button>
+            <button onclick="updateProduct()" id="btupdate">Update PRODUCT</button>
+            <script>
+                document.getElementById('btupdate').style.display='none';
+            </script>
             <br>
             <table>
                 <tr>

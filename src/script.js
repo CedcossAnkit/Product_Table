@@ -59,9 +59,66 @@ function display(mainProduct) {
     var hTML;
     for (var i = 0; i < mainProduct.length; i++) {
 
-        hTML += "<tr><td>" + mainProduct[i].pid + "</td> <td>" + mainProduct[i].pPrice + "</td> <td>" + mainProduct[i].pName + "</td> <td><a>edit</a></td></tr>";
+        hTML += "<tr><td>" + mainProduct[i].pid + "</td>\
+         <td>" + mainProduct[i].pPrice + "</td> \
+         <td>" + mainProduct[i].pName + "</td>\
+          <td><a onclick=update("+mainProduct[i].pid+")>Edit || </a>\
+          <a onclick=DeleteEle("+mainProduct[i].pid+")>Delete</a></td>\
+          </tr>";
     }
     document.getElementById('table').innerHTML = hTML;
+}
+
+function update(pid){
+    document.getElementById('btupdate').style.display='block';
+    document.getElementById('btadd').style.display='none';
+    for(var i=0;i<mainProduct.length;i++){
+
+        if(mainProduct[i].pid==pid){
+            var pid=mainProduct[i].pid;
+            var pname=mainProduct[i].pName;    
+            var pprice=mainProduct[i].pPrice;
+
+            console.log(pid,pname,pprice);
+            document.getElementById('pID').value=pid;
+            document.getElementById('pName').value=pname;
+            document.getElementById('pPrice').value=pprice;                   
+
+            break;
+        }
+        
+
+    }
+}
+
+function updateProduct(){
+    idd=document.getElementById('pID').value;
+    namee=document.getElementById('pName').value;
+    pricee=document.getElementById('pPrice').value;
+    for(var j=0;j<mainProduct.length;j++){
+        if(mainProduct[j].pid==idd){
+            mainProduct[j].pName=namee;
+            mainProduct[j].pPrice=pricee;
+
+            document.getElementById('pName').value=pricee;
+            document.getElementById('pPrice').value=namee;
+            console.log(mainProduct[j].pName,mainProduct[j].pPrice);
+
+            display(mainProduct);
+            break;
+
+        }
+    }
+}
+
+function DeleteEle(pid){
+    for(var i=0;i<mainProduct.length;i++){
+        if(mainProduct[i].pid==pid){
+            mainProduct.splice(i,1);
+            display(mainProduct);
+            break;
+        }
+    }
 }
 // function display(ide,product,price){
 //     for(var i=0;i<ide.length;i++){
